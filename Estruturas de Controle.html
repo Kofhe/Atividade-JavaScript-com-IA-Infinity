@@ -1,0 +1,83 @@
+<!-- Crie um sistema em JavaScript que utilize os conceitos de operadores ternários, estruturas switch e operadores lógicos para classificar e exibir mensagens baseadas na idade e no status do usuário.
+
+Requisitos do Projeto:
+
+* Solicite ao usuário a idade e o status de registro (registrado ou não registrado) utilizando prompt().
+
+* Use um operador ternário para determinar se o usuário é maior de idade ou menor de idade.
+
+* Utilize uma estrutura switch para exibir uma mensagem personalizada com base no status do usuário:
+
+- "registrado": Exibir mensagem de boas-vindas.
+- "não registrado": Exibir mensagem para completar o registro.
+- Qualquer outro valor: Exibir "Status desconhecido."
+- Adicione uma lógica com operadores lógicos para verificar:
+- Se o usuário é maior de idade e registrado, exiba uma mensagem de acesso completo.
+- Se o usuário é menor de idade ou não registrado, exiba uma mensagem de acesso limitado. -->
+
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <title>Sistema Simplificado</title>
+</head>
+<body>
+    <h1>Sistema de Classificação</h1>
+    <h2>Link da atividade: </h2>
+    <a href="https://github.com/SEU_USUARIO/SEU_REPOSITORIO" target="github">
+    <button>Ver atividade no GitHub</button></a>
+
+    <style>
+    button {
+        padding: 10px 20px;
+        background-color: #24292e;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    button:hover {
+        background-color: #444c56;
+    }
+</style>
+
+    <script>
+        // Pergunta a idade do usuário
+let idade = prompt("Digite sua idade:");
+
+// Pergunta o status do usuário
+let status = prompt("Você é registrado ou não registrado?");
+
+// Operador ternário:
+if (idade >= 18) {
+  alert("Você é maior de idade.");
+} else {
+  alert("Você é menor de idade.");
+}
+
+// Switch para verificar o status
+switch (status) {
+  case "registrado":
+    alert("Bem-vindo! Seu cadastro está ativo.");
+    break;
+
+  case "não registrado":
+    alert("Por favor, complete seu cadastro.");
+    break;
+
+  default:
+    alert("Status desconhecido.");
+}
+
+// Operadores lógicos para definir o acesso
+if (idade >= 18 && status === "registrado") {
+  alert("Acesso completo liberado.");
+} else {
+  alert("Acesso limitado.");
+}
+
+    </script>
+</body>
+</html>
