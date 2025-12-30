@@ -1,0 +1,91 @@
+ <!-- Crie um programa em que permita ao usuário gerenciar uma lista de tarefas usando arrays e loops. O programa deve oferecer as opções de adicionar, remover, listar e concluir tarefas, enquanto manipula o array de tarefas e utiliza loops para percorrê-lo.
+
+Requisitos do Projeto:
+* Adicionar Tarefas:
+ - Solicite ao usuário o nome de uma tarefa e adicione-a ao final do array usando o método push().
+
+* Listar Tarefas:
+ - Use um loop for ou for...of para percorrer o array de tarefas e exibi-las com seus índices.
+
+* Remover Tarefas:
+ - Solicite ao usuário o índice da tarefa que deseja remover e utilize o método splice() para removê-la do array.
+
+* Concluir Tarefas (Opcional):
+- Peça ao usuário o índice de uma tarefa e marque-a como concluída, modificando a string para algo como "✅ Lavar a louça".
+
+* Interação Contínua:
+ - Utilize um loop while para continuar solicitando ações do usuário (adicionar, listar, remover, concluir) até que ele escolha sair. -->
+
+ <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Tarefas</title>
+</head>
+<body>
+
+<h1>Depois de completar a lista de tarefas:</h1>
+
+<img 
+    src="https://i.pinimg.com/564x/ec/b8/98/ecb898e4d35b274f8422a2f03bbc1edd.jpg" 
+    alt="Picapau descansando após concluir as tarefas"
+    width="300"
+>
+
+<script>
+    // Array que guarda as tarefas
+    let tarefas = [];
+
+    // Variável que controla se o menu continua
+    let continuar = true;
+
+    // Loop while para manter a interação com o usuário
+    while (continuar) {
+
+        // Menu de opções
+        let opcao = Number(prompt(
+            "LISTA DE TAREFAS\n" +
+            "1 - Adicionar tarefa\n" +
+            "2 - Listar tarefas\n" +
+            "3 - Remover tarefa\n" +
+            "4 - Concluir tarefa\n" +
+            "0 - Sair"
+        ));
+
+        // 1 - Adicionar tarefa
+        if (opcao === 1) {
+            let tarefa = prompt("Digite o nome da tarefa:");
+            tarefas.push(tarefa); // push() adiciona a tarefa no array
+            alert("Tarefa adicionada!");
+
+        // 2 - Listar tarefas
+        } else if (opcao === 2) {
+            let texto = "Lista de Tarefas:\n";
+
+            // for percorre o array mostrando índice e tarefa
+            for (let i = 0; i < tarefas.length; i++) {
+                texto += i + " - " + tarefas[i] + "\n";
+            }
+
+            alert(texto);
+
+        // 3 - Remover tarefa
+        } else if (opcao === 3) {
+            let indice = Number(prompt("Digite o índice da tarefa a remover:"));
+            tarefas.splice(indice, 1); // splice() remove a tarefa pelo índice
+            alert("Tarefa removida!");
+
+        // 4 - Concluir tarefa
+        } else if (opcao === 4) {
+            let indice = Number(prompt("Digite o índice da tarefa concluída:"));
+            tarefas[indice] = "✅ " + tarefas[indice]; // marca a tarefa como concluída
+            alert("Tarefa concluída!");
+
+        // 0 - Sair do programa
+        } else if (opcao === 0) {
+            continuar = false; // encerra o loop
+        }
+    }
+
+    alert("Programa encerrado. Obrigado por usar a lista de tarefas!");
+</script>
