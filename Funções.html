@@ -1,0 +1,119 @@
+<!-- Crie um programa que utiliza funções anônimas, arrow functions e funções de callback para gerenciar e processar uma lista de tarefas.
+Requisitos do Projeto:
+* Criação de Funções Anônimas:
+ - Use uma função anônima para adicionar tarefas a uma lista. A função deve ser atribuída a uma variável e permitir adicionar uma nova tarefa ao array de tarefas.
+
+* Uso de Arrow Functions:
+ - Implemente uma arrow function para listar todas as tarefas, exibindo cada tarefa com seu índice no console.
+
+* Funções de Callback:
+ - Crie uma função que receba outra função como callback. Essa função deve permitir executar diferentes operações com a lista de tarefas, como:
+ - Remover uma tarefa.
+ - Atualizar uma tarefa.
+ - Concluir uma tarefa.
+
+* Interação com o Usuário:
+ - Utilize métodos como prompt() para receber ações do usuário e exiba os resultados no console usando console.log().  -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Tarefas</title>
+</head>
+<body>
+
+<script>
+    // Array que armazena as tarefas
+    let tarefas = [];
+
+    /* ------------------------------
+       FUNÇÃO ANÔNIMA
+       ------------------------------
+       Função anônima atribuída a uma variável
+       Responsável por adicionar tarefas
+    */
+    let adicionarTarefa = function(tarefa) {
+        tarefas.push(tarefa);
+        console.log("Tarefa adicionada:", tarefa);
+    };
+
+    /* ------------------------------
+       ARROW FUNCTION
+       ------------------------------
+       Lista todas as tarefas com índice
+    */
+    const listarTarefas = () => {
+        console.log("Lista de Tarefas:");
+        for (let i = 0; i < tarefas.length; i++) {
+            console.log(i + " - " + tarefas[i]);
+        }
+    };
+
+    /* ------------------------------
+       FUNÇÃO COM CALLBACK
+       ------------------------------
+       Recebe uma função e executa uma operação
+    */
+    function executarOperacao(callback) {
+        callback();
+    }
+
+    // Loop para interação com o usuário
+    let continuar = true;
+
+    while (continuar) {
+
+        let opcao = Number(prompt(
+            "LISTA DE TAREFAS\n" +
+            "1 - Adicionar tarefa\n" +
+            "2 - Listar tarefas\n" +
+            "3 - Remover tarefa\n" +
+            "4 - Atualizar tarefa\n" +
+            "5 - Concluir tarefa\n" +
+            "0 - Sair"
+        ));
+
+        // Adicionar tarefa (função anônima)
+        if (opcao === 1) {
+            let tarefa = prompt("Digite a tarefa:");
+            adicionarTarefa(tarefa);
+
+        // Listar tarefas (arrow function)
+        } else if (opcao === 2) {
+            listarTarefas();
+
+        // Remover tarefa (callback)
+        } else if (opcao === 3) {
+            executarOperacao(() => {
+                let indice = Number(prompt("Digite o índice da tarefa a remover:"));
+                tarefas.splice(indice, 1);
+                console.log("Tarefa removida!");
+            });
+
+        // Atualizar tarefa (callback)
+        } else if (opcao === 4) {
+            executarOperacao(() => {
+                let indice = Number(prompt("Digite o índice da tarefa:"));
+                let novaTarefa = prompt("Digite o novo nome da tarefa:");
+                tarefas[indice] = novaTarefa;
+                console.log("Tarefa atualizada!");
+            });
+
+        // Concluir tarefa (callback)
+        } else if (opcao === 5) {
+            executarOperacao(() => {
+                let indice = Number(prompt("Digite o índice da tarefa concluída:"));
+                tarefas[indice] = "✅ " + tarefas[indice];
+                console.log("Tarefa concluída!");
+            });
+
+        // Sair
+        } else if (opcao === 0) {
+            continuar = false;
+            console.log("Programa encerrado.");
+        }
+    }
+</script>
+
+</body>
+</html>
