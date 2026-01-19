@@ -1,0 +1,155 @@
+<!-- Crie um programa em JavaScript que gerencie uma lista de nomes utilizando diversos métodos auxiliares de arrays para realizar operações como adicionar, filtrar, encontrar e transformar os dados.
+
+Requisitos do Projeto:
+* Adicionar Nomes:
+ - Permita ao usuário adicionar nomes à lista utilizando o método push().
+ - Exiba a lista atualizada no console.
+
+* Filtrar Nomes:
+- Use o método filter() para criar uma nova lista contendo apenas os nomes que começam com uma letra específica fornecida pelo usuário.
+ - Exiba os nomes filtrados no console.
+
+* Buscar um Nome Específico:
+- Use o método find() para localizar o primeiro nome na lista que corresponde exatamente a um valor fornecido pelo usuário.
+ - Exiba o resultado no console ou uma mensagem informando que o nome não foi encontrado.
+
+* Transformar Nomes:
+- Utilize o método map() para transformar todos os nomes da lista em letras maiúsculas.
+ - Exiba a nova lista no console.
+
+* Verificar Condições:
+ - Use o método every() para verificar se todos os nomes têm mais de três caracteres.
+ - Exiba a resposta (true ou false) no console.
+
+* Interação Contínua: 
+ - Implemente um loop while para permitir que o usuário escolha realizar várias operações consecutivas (adicionar, filtrar, buscar, transformar ou verificar). -->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Lista de Nomes</title>
+</head>
+<body>
+
+<script>
+
+// Cria um array vazio para guardar os nomes
+let nomes = [];
+
+// Controla se o programa continua rodando
+let continuar = true;
+
+// Enquanto continuar for true, o menu aparece
+while (continuar) {
+
+  // Mostra o menu e recebe a opção do usuário
+  let opcao = Number(prompt(
+    "MENU\n" +
+    "1 - Adicionar nome\n" + //O n significa uma nova linha
+    "2 - Filtrar nomes por letra\n" +
+    "3 - Buscar nome\n" +
+    "4 - Transformar em MAIÚSCULO\n" +
+    "5 - Verificar tamanho dos nomes\n" +
+    "0 - Sair"
+  ));
+
+  // ================= ADICIONAR =================
+  if (opcao === 1) {
+
+    // Pede um nome ao usuário
+    let nome = prompt("Digite um nome:");
+
+    // push() adiciona o nome no final do array
+    nomes.push(nome);
+
+    // Mostra mensagem no console
+    console.log("Nome adicionado!");
+
+    // Mostra a lista atualizada
+    console.log("Lista atual:", nomes);
+  }
+
+  // ================= FILTRAR =================
+  else if (opcao === 2) {
+
+    // Pede uma letra para filtrar
+    let letra = prompt("Digite a letra inicial:");
+
+    // filter() cria uma nova lista só com nomes que começam com a letra
+    let filtrados = nomes.filter(n => n.startsWith(letra));
+
+    // Mostra os nomes filtrados
+    console.log("Filtrados:", filtrados);
+
+    // Mostra a lista original atual
+    console.log("Lista atual:", nomes);
+  }
+
+  // ================= BUSCAR =================
+  else if (opcao === 3) {
+
+    // Pede o nome que será buscado
+    let busca = prompt("Digite o nome para buscar:");
+
+    // find() procura o primeiro nome igual ao digitado
+    let encontrado = nomes.find(n => n === busca);
+
+    // Verifica se encontrou algo
+    if (encontrado) {
+      console.log("Encontrado:", encontrado);
+    } else {
+      console.log("Nome não encontrado.");
+    }
+
+    // Exibe a lista atual
+    console.log("Lista atual:", nomes);
+  }
+
+  // ================= MAP =================
+  else if (opcao === 4) {
+
+    // map() cria uma nova lista com todos os nomes em maiúsculo
+    let maiusculos = nomes.map(n => n.toUpperCase());
+
+    // Mostra a lista transformada
+    console.log("Em maiúsculo:", maiusculos);
+
+    // Mostra a lista original
+    console.log("Lista atual:", nomes);
+  }
+
+  // ================= EVERY =================
+  else if (opcao === 5) {
+
+    // every() verifica se todos os nomes têm mais de 3 letras
+    let todosMaiores = nomes.every(n => n.length > 3);
+
+    // Mostra true ou false
+    console.log("Todos têm mais de 3 letras?", todosMaiores);
+
+    // Exibe a lista atual
+    console.log("Lista atual:", nomes);
+  }
+
+  // ================= SAIR =================
+  else if (opcao === 0) {
+
+    // Muda continuar para false e sai do loop
+    continuar = false;
+
+    // Mostra mensagem final
+    console.log("Programa encerrado.");
+  }
+
+  // ================= ERRO =================
+  else {
+
+    // Caso o usuário digite algo inválido
+    alert("Opção inválida!");
+  }
+}
+
+</script>
+</body>
+</html>
