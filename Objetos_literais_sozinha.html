@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // // Objetos literais, parecido com dicionario do python 
+        // const pessoa = {
+        //     nome: 'João',
+        //     idade: 30,
+        //     profissao: 'Desenvolvedor'
+        // };
+
+        // //Acessando um valor
+        // console.log(pessoa.nome); // João
+
+        // //Adicionando um novo valor
+        // pessoa.email = 'joao@email.com';
+        // console.log(pessoa.email); // joao@email.com
+
+        // //Modificando um valor
+        // pessoa['nome'] = 'Maria';
+        // console.log(pessoa.nome); // Maria
+
+        // //Apagando um valor
+        // delete pessoa.idade;
+        //console.log(pessoa.idade); // não definido
+
+// Crie um objeto chamado carro que contenha as seguintes propriedades:
+
+// marca: uma string representando a marca do carro.
+// modelo: uma string representando o modelo do carro.
+// ano: um número representando o ano de fabricação.
+//Após criar o objeto, exiba no console cada uma das propriedades separadamente (marca, modelo, e ano).
+
+// let carro = { 
+//     marca: 'Fiat',
+//     modelo:'Palio',
+//     ano:2008
+// }
+// console.log(carro);
+// console.log(carro.marca);
+// console.log(carro.modelo);
+// console.log(carro.ano);
+
+//array de ojbetos, parecido com lista de dicionarios do python, acesssar 
+// dados de forma organizada
+// const pessoas = [
+//     { nome: 'João', idade: 30 },
+//     { nome: 'Maria', idade: 25 },
+//     { nome: 'Pedro', idade: 35 }
+// ];
+
+//spread operator, usado para copiar um objeto ou array, 
+// ou para combinar objetos ou arrays
+//uso com arrays:
+// const numeros1 = [1, 2, 3];
+// const numeros2 = [...numeros1, 4, 5, 6];
+
+// //uso com objetos:
+// const ojb1 = { a: 1, b: 2 };
+// const ojb2 = { ...ojb1, c: 3 };
+
+//   Explique o que são objetos literais em JavaScript e 
+//   mostre um exemplo prático de um objeto chamado aluno, que 
+//   contenha as seguintes propriedades e métodos:
+
+// nome (string)
+// notas (array de números)
+// calcularMedia() (método que retorna a média das notas)
+
+//Objetos literais, parecido com dicionario do python, ele é uma coleção
+//  de propriedades e métodos, onde cada propriedade é uma chave-valor
+
+const aluno = {
+    nome: 'Andreia',
+    notas: [8, 9, 7],
+
+
+calcularMedia() {//calcular media
+    let soma = 0; //soma das notas
+
+    //percorrer o array de notas e somar
+    for (let nota of this.notas) { //nota é só um nome temporário para cada 
+    // elemento do array, this.notas é o array de notas do objeto aluno
+        soma += nota;
+    }
+    return soma / this.notas.length; //retorna a média, 
+    // soma dividido pelo número de notas]
+    }
+}
+
+console.log(aluno.calcularMedia()); //chama o método calcularMedia do 
+// objeto aluno
+    </script>
+</body>
+</html>
