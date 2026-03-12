@@ -1,0 +1,30 @@
+//   Explique o que são objetos literais em JavaScript e 
+//   mostre um exemplo prático de um objeto chamado aluno, que 
+//   contenha as seguintes propriedades e métodos:
+
+// nome (string)
+// notas (array de números)
+// calcularMedia() (método que retorna a média das notas)
+
+//Objetos literais, parecido com dicionario do python, ele é uma coleção
+//  de propriedades e métodos, onde cada propriedade é uma chave-valor
+
+const aluno = {
+    nome: 'Andreia',
+    notas: [8, 9, 7],
+
+
+calcularMedia() {//calcular media
+    let soma = 0; //soma das notas
+
+    //percorrer o array de notas e somar
+    for (let nota of this.notas) { //nota é só um nome temporário para cada 
+    // elemento do array, this.notas é o array de notas do objeto aluno
+        soma += nota;
+    }
+    return soma / this.notas.length; //retorna a média, 
+    // soma dividido pelo número de notas]
+    }
+}
+
+console.log(aluno.calcularMedia()); //chama o método calcularMedia do objeto aluno
